@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
-
 namespace DigitalRootFinder {
    class Program {
       static void Main (string[] args) {
