@@ -1,14 +1,17 @@
 ﻿using System;
-namespace NumberConversionGame {
+namespace Fibonacciseries {
     class Program {
         static void Main (string[] args) {
-            Console.Write ("Enter the number:");
-            int input = int.Parse (Console.ReadLine ());
-            String Hexadecimal = Convert.ToString (input, 16).ToUpper ();
-            String Binary = Convert.ToString (input, 2);
-            Console.WriteLine ($"Input:{input}");
-            Console.WriteLine ($"HEX:{Hexadecimal}");
-            Console.WriteLine ($"Binary:{Binary}");
+            Console.Write ("Enter the number of terms:");
+            int number = int.Parse (Console.ReadLine ());
+            int a = 0, b = 1;
+            Console.Write ($"Fibonacci series : {a} {b} ");
+            for (int i = 2; i < number; i++) {
+                int c = a + b;
+                Console.Write ($"{c} ");
+                a = b;
+                b = c;
+            }
             Console.ReadLine ();
         }
     }
