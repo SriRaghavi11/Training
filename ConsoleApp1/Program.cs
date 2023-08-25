@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace PalindromeChecker {
    class Program {
       static bool IsPalindrome (string input) {
@@ -8,19 +7,17 @@ namespace PalindromeChecker {
          int right = input.Length - 1;
 
          while (left < right) {
-            if (input[left] != input[right]) {
+            if (input[left] != input[right])
                return false;
-            }
             left++;
             right--;
          }
-
          return true;
       }
 
       static void Main (string[] args) {
-      Console.WriteLine ("Enter a sentence or word:");
-      string input = Console.ReadLine ();
+         Console.WriteLine ("Enter a sentence or word:");
+         string input = Console.ReadLine ();
 
          if (IsPalindrome (input)) {
             Console.WriteLine ("It is a palindrome.");
