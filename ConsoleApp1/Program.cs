@@ -14,7 +14,6 @@ namespace PalindromeChecker {
          }
          return true;
       }
-
       static void Main (string[] args) {
          Console.WriteLine ("Enter a sentence or word:");
          string input = Console.ReadLine ();
