@@ -5,7 +5,6 @@ namespace PalindromeChecker {
          input = input.ToLower ().Replace (" ", "").Replace (".", "").Replace (",", "").Replace ("?", "").Replace ("'", "").Replace ("!", "");
          int left = 0;
          int right = input.Length - 1;
-
          while (left < right) {
             if (input[left] != input[right])
                return false;
@@ -17,7 +16,6 @@ namespace PalindromeChecker {
       static void Main (string[] args) {
          Console.WriteLine ("Enter a sentence or word:");
          string input = Console.ReadLine ();
-
          if (IsPalindrome (input)) {
             Console.WriteLine ("It is a palindrome.");
          } else {
