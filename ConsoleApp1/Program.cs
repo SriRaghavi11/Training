@@ -6,11 +6,9 @@ namespace PalindromeandReverse {
          Console.WriteLine ("Enter the number:");
          int number = int.Parse (Console.ReadLine ());
          int originalNumber = number;
-
          int reversedNumber = 0;
          while (number > 0) {
-            int digit=number% 10;
-            reversedNumber = reversedNumber * 10 + digit;
+            reversedNumber = reversedNumber * 10 + (number % 10);
             number /= 10;
          }
          Console.WriteLine ("Reversed Number: " + reversedNumber);
