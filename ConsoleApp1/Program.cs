@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace PalindromeandReverse {
    class Program {
       static void Main (string[] args) {
