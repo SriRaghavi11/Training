@@ -14,7 +14,7 @@ namespace IsogramCheck {
       }
       static void Main (string[] args) {
          Console.Write ("Enter a word: ");
-         string word= Console.ReadLine ();
+         string word = Console.ReadLine ();
          if (IsIsogram (word)) {
             Console.WriteLine ("The word is an isogram.");
          } else {
