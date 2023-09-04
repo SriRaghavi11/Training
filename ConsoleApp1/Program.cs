@@ -7,8 +7,7 @@ namespace DigitalRootFinder {
          if (n > 0) {
             int digitalroot = 1 + ((n - 1) % 9);
             Console.WriteLine ($"The digital root is {digitalroot}");
-         } else if (n==0)
-            {
+         } else if (n == 0) {
             Console.WriteLine ("The digital root is 0");
          }
       }
