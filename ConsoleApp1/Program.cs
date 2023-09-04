@@ -6,26 +6,56 @@ namespace StrongPasswordCheck {
          string password = Console.ReadLine ();
          if (isStrongPassword (password))
             Console.WriteLine ("The password is strong.");
-         else Console.WriteLine ("The password is not strong.Please ensure that the pasword contains atleast six characters-atleast one digit,atleast one upper and lowercase letter and atleast one special character !@#$%^&()-+");
-      }
-      static bool isStrongPassword (string password) {
-         if (password.Length < 6)
-            return false;
-         bool hasDigit = false;
-         bool hasUppercase = false;
-         bool hasLowercase = false;
-         bool hasSpecialcharacter = false;
-         foreach (char c in password) {
-            if (char.IsDigit (c))
-               hasDigit = true;
-            else if (char.IsUpper (c))
-               hasUppercase = true;
-            else if (char.IsLower (c))
-               hasLowercase = true;
-            else if ("!@$%^7890-+".Contains (c))
-               hasSpecialcharacter = true;
+         else {
+            if (!isStrongPassword (password)) {
+               Console.WriteLine ("The password is not strong.Please ensure the password has 6 characters");
+               if (!hasDigit (password)) {
+                  Console.WriteLine ("The password is not strong. Please ensure you have entered a number.");
+               }
+               if (!hasUppercase (password)) {
+                  Console.WriteLine ("The password is not strong. Kindly ensure you entered an uppercase letter.");
+               }
+               if (!hasLowercase (password)) {
+                  Console.WriteLine ("The password is not strong. Kindly ensure you entered a lowercase letter.");
+               }
+               if (!hasSpecialCharacter (password)) {
+                  Console.WriteLine ("The password is not strong. Kindly ensure you entered a special character (!@#$%^&*()-+)");
+               }
+            }
          }
-         return hasDigit && hasUppercase && hasLowercase && hasSpecialcharacter;
+         static bool isStrongPassword (string password) {
+            if (password.Length < 6)
+               return false;
+            return hasDigit (password) && hasUppercase (password) && hasLowercase (password) && hasSpecialCharacter (password);
+         }
+         static bool hasDigit (string password) {
+            foreach (char c in password) {
+               if (char.IsDigit (c))
+                  return true;
+            }
+            return false;
+         }
+         static bool hasUppercase (string password) {
+            foreach (char c in password) {
+               if (char.IsUpper (c))
+                  return true;
+            }
+            return false;
+         }
+         static bool hasLowercase (string password) {
+            foreach (char c in password) {
+               if (char.IsLower (c))
+                  return true;
+            }
+            return false;
+         }
+         static bool hasSpecialCharacter (string password) {
+            foreach (char c in password) {
+               if ("!@$%^*()+".Contains (c))
+                  return true;
+            }
+            return false;
+         }
       }
    }
 }
