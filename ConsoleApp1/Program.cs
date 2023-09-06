@@ -2,24 +2,27 @@
 namespace StrongPasswordCheck {
    class Program {
       static void Main (string[] args) {
-         Console.WriteLine ("Enter the password:");
+         Console.Write ("Enter the password:");
          string password = Console.ReadLine ();
          if (isStrongPassword (password))
             Console.WriteLine ("The password is strong.");
          else {
+            Console.WriteLine ("The password is not strong");
             if (!isStrongPassword (password)) {
-               Console.WriteLine ("The password is not strong.Please ensure the password has 6 characters");
+               if (password.Length < 6) {
+                  Console.Write ("Please ensure the password has 6 characters");
+               }
                if (!hasDigit (password)) {
-                  Console.WriteLine ("The password is not strong. Please ensure you have entered a number.");
+                  Console.Write ("Please ensure you have entered a number.");
                }
                if (!hasUppercase (password)) {
-                  Console.WriteLine ("The password is not strong. Kindly ensure you entered an uppercase letter.");
+                  Console.Write ("Kindly ensure you entered an uppercase letter.");
                }
                if (!hasLowercase (password)) {
-                  Console.WriteLine ("The password is not strong. Kindly ensure you entered a lowercase letter.");
+                  Console.Write ("Kindly ensure you entered a lowercase letter.");
                }
                if (!hasSpecialCharacter (password)) {
-                  Console.WriteLine ("The password is not strong. Kindly ensure you entered a special character (!@#$%^&*()-+)");
+                  Console.Write ("Kindly ensure you entered a special character (!@#$%^&*()-+)");
                }
             }
          }
