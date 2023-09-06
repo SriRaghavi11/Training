@@ -2,26 +2,29 @@
 class Program {
    static void Main (string[] args) {
       Console.Write ("Enter the number of words: ");
-      int numWords = int.Parse (Console.ReadLine ());
-      string[] words = new string[numWords];
-      for (int i = 0; i < numWords; i++) {
-         Console.Write ($"Enter word {i + 1}: ");
+      int numberOfWords = int.Parse (Console.ReadLine ());
+      string[] words = new string[numberOfWords];
+      for (int i = 0; i < numberOfWords; i++) {
+         Console.Write ($"Enter word #{i + 1}: ");
          words[i] = Console.ReadLine ();
       }
-      string abecedarianWord = FindAbecedarianWord (words);
-      if (!string.IsNullOrEmpty (abecedarianWord)) {
-         Console.WriteLine ($"The first abecedarian word is: {abecedarianWord}");
+      string longestAbecedarianWord = FindLongestAbecedarianWord (words);
+      if (!string.IsNullOrEmpty (longestAbecedarianWord)) {
+         Console.WriteLine ("Longest Abecedarian Word: " + longestAbecedarianWord);
       } else {
-         Console.WriteLine ("No abecedarian word found.");
+         Console.WriteLine ("No abecedarian word found in the input.");
       }
    }
-   static string FindAbecedarianWord (string[] words) {
+   static string FindLongestAbecedarianWord (string[] words) {
+      string longestAbecedarianWord = "";
+      int maxLength = 0;
       foreach (string word in words) {
-         if (IsAbecedarian (word)) {
-            return word;
+         if (IsAbecedarian (word) && word.Length > maxLength) {
+            maxLength = word.Length;
+            longestAbecedarianWord = word;
          }
       }
-      return null;
+      return longestAbecedarianWord;
    }
    static bool IsAbecedarian (string word) {
       for (int i = 1; i < word.Length; i++) {
